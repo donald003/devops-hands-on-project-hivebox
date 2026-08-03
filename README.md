@@ -31,7 +31,8 @@ Here is a pre-start checklist:
 
 - ⭐ <a target="_blank" href="https://github.com/DevOpsHiveHQ/dynamic-devops-roadmap">Star the **roadmap** repo</a> on GitHub for better visibility.
 - ✉️ <a target="_blank" href="https://newsletter.devopsroadmap.io/subscribe">Join the community</a> for the project community activities, which include mentorship, job posting, online meetings, workshops, career tips and tricks, and more.
-- 🌐 <a target="_blank" href="https://t.me/DevOpsHive/985">Join the Telegram group</a> for interactive communication.
+- 🌐 <a t
+- rget="_blank" href="https://t.me/DevOpsHive/985">Join the Telegram group</a> for interactive communication.
 
 ## Preparation
 
@@ -53,3 +54,16 @@ Here is a pre-start checklist:
 ## Implementation
 
 ** ADD YOUR IMPLEMENTATION DOCUMENTATION HERE **
+
+
+### Phase 1
+
+- Forked the main directory and created branches of the forked directory.
+- Created a project board using Kanban template.
+- Delivered the initial phase as a pull request, which I will do for each next phase.
+
+###  Phase 2
+- Implemented a python app which runs a basic print version function.
+- Tested it locally with a Docker container.
+- To test the app: docker run hivebox:0.0.1
+- Output: HiveBox Vesrion: 0.0.1

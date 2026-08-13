@@ -1,0 +1,48 @@
+name: CI Pipeline
+
+on:
+    pull_request:
+        branches: [main]
+
+jobs:
+    lint-and-test:
+
+        runs-on: ubuntu-latest
+
+        steps:  
+          - uses: actions/checkout@v4
+
+          - name: Lint Dockerfile
+            uses: hadolint/hadolint-action@v3
+            with:
+                dockerfile: ./Dockerfile
+
+          - name: Set up Python
+            uses: actions/setup-python@v5
+            with:
+                python-version: "3.11"
+
+          - name: Install dependencies
+            run: pip install -r requirements.txt
+
+          - name: Lint Python
+            run: pylint hivebox_app.py
+
+          - name: Run Unit Tests
+            run: pytest test_hivebox_app.py
+
+    build-and-test:
+        runs-on: ubuntu-latest
+        needs: lint-and-test
+        steps:  
+          - uses: actions/checkout@v4
+          
+          - name: Build Docker Image
+            run: docker build -t hivebox:ci .
+
+          - name: Test /version endpoint
+            run: |
+                docker run -d --name hivebox-ci -p 5000:5000 hivebox:ci
+                sleep 3
+                curl -s http:localhost:5000/version | grep "0.0.1"
+                docker stop hivebox-ci

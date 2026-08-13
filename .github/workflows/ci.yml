@@ -43,6 +43,13 @@ jobs:
           - name: Test /version endpoint
             run: |
                 docker run -d --name hivebox-ci -p 5000:5000 hivebox:ci
-                sleep 3
-                curl -s http:localhost:5000/version | grep "0.0.1"
-                docker stop hivebox-ci
+                for i in {1..10}; do
+                  if curl -s http://localhost:5000/version | grep -q "0.0.1"; then
+                    echo "Endpoint test passed"
+                    exit 0
+                  fi
+                  sleep 2
+                done
+                echo "Endpoint test failed"
+                docker logs hivebox-ci
+                exit 1

@@ -67,3 +67,11 @@ Here is a pre-start checklist:
 - Tested it locally with a Docker container.
 - To test the app: docker run hivebox:0.0.1
 - Output: HiveBox Vesrion: 0.0.1
+
+###  Phase 3
+- Implemented Flask API with `/version` and `/temperature` endpoints.
+- `/temperature` fetches data from openSenseMap API and returns average temperature (data max 1 hour old).
+- Added unit tests for both endpoints using pytest.
+- Added Dockerfile with best practices.
+- Added GitHub Actions CI pipeline: lint Dockerfile, lint Python, run unit tests, build image, test `/version` endpoint.
+- Added OpenSSF Scorecard for security scanning.

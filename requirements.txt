@@ -2,3 +2,5 @@ flask
 requests
 pytest
 pylint
+prometheus_client
+vcrpy

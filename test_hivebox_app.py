@@ -1,6 +1,6 @@
 """Unit tests for Hivebox API"""
 import pytest
-import vcr
+import vcrpy
 from hivebox_app import app
 
 @pytest.fixture(name="client")

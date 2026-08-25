@@ -3,4 +3,4 @@ requests
 pytest
 pylint
 prometheus_client
-vrcpy
+vrc

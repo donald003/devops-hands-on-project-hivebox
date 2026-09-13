@@ -30,6 +30,11 @@
 - Added GitHub Actions CI pipeline: lint Dockerfile, lint Python, run unit tests, build image, test `/version` endpoint.
 - Added OpenSSF Scorecard for security scanning.
 
+#### Testing
+
+- `pytest test_hivebox_app.py -v` locally
+- CI runs automatically on this PR
+
 ###  Phase 4
 - Added Kubernetes manifests: Deployment, Service, Ingress, ConfigMap
 - Kind cluster config with Ingress-Nginx
@@ -39,3 +44,9 @@
 - Integration tests with VCR.py
 - Implemented SonarQube and Terrascan in CI pipeline
 - CD workflow to push images to GHCR
+
+#### Testing
+
+- `pytest test_hivebox_app.py -v` locally
+- Kind cluster: `kubectl apply -f k8s/` then `curl localhost/version`
+- CI/CD run automatically on this PR
